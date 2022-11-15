@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int sieve(int n) {
+
+  vector <int> Prime(n+1, true);
+  Prime[0]=Prime[1]=false;
+  int count=0;
+
+  for (int i=2; i<n; i++) {
+
+    if (Prime[i]) {
+
+      count ++;
+      for (int j=2*i; j<n; j=j+i) {
+
+        Prime[j]= false;
+      }
+    }
+  }
+  return count;
+}
+
+int main() {
+
+  int a= Sieve(10);
+  cout << a;
+}
